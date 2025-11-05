@@ -1,10 +1,11 @@
 import React from 'react'
+import './RegistrarUsuario.css'
 
 const RegistrarUsuario = () => {
   return (
     <div className="wrapper">
       <form action="">
-        <h1>Registro</h1>
+        <h1>Registro de usuario</h1>
         <div className="input-box">
           <input type="text" placeholder='Usuario' required/>
         </div>

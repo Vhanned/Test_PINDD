@@ -3,6 +3,7 @@ import Login from "./components/LoginForm/Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import RegistrarUsuario from "./components/RegistrarUsuario/RegistrarUsuario";
 import RestablecerContrasena from "./components/RestablecerContraseña/RestablecerContrasena";
+import Main from "./components/Main/Main";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             path="/restablecercontraseña"
             element={<RestablecerContrasena />}
           />
+          <Route path="/testPINDD" element={<Main />} />
         </Routes>
       </div>
     </Router>

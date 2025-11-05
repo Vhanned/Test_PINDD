@@ -92,3 +92,7 @@
 .register-link p a:hover {
   text-decoration: underline;
 }
+
+.button-login a {
+  text-decoration: none;
+}
