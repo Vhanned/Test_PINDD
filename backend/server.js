@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.js';
+import tasksRoutes from './routes/tasks.js';
 
 dotenv.config();
 
@@ -16,14 +17,15 @@ app.use(express.urlencoded({ extended: true }));
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/tu_database';
 
 mongoose.connect(MONGODB_URI)
-  .then(() => console.log('✅ Conectado a MongoDB'))
-  .catch((err) => console.error('❌ Error al conectar a MongoDB:', err));
+  .then(() => console.log('Conectado a MongoDB'))
+  .catch((err) => console.error('Error al conectar a MongoDB:', err));
 
 app.get('/', (req, res) => {
   res.json({ message: '¡Servidor funcionando correctamente!' });
 });
 
 app.use('/api/auth', authRoutes);
+app.use('/api/tasks',tasksRoutes);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
@@ -33,5 +35,5 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });

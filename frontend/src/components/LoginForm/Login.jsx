@@ -18,7 +18,7 @@ const Login = () => {
             ...formData,
             [e.target.name]: e.target.value
         });
-        setError(''); // Limpiar error al escribir
+        setError('');
     };
 
     const handleSubmit = async (e) => {
@@ -38,7 +38,6 @@ const Login = () => {
             const data = await response.json();
 
             if (data.success) {
-                // Guardar token
                 if (rememberMe) {
                     localStorage.setItem('token', data.token);
                     localStorage.setItem('user', JSON.stringify(data.user));
@@ -46,8 +45,6 @@ const Login = () => {
                     sessionStorage.setItem('token', data.token);
                     sessionStorage.setItem('user', JSON.stringify(data.user));
                 }
-
-                // Redireccionar
                 navigate('/testPINDD');
             } else {
                 setError(data.message || 'Error al iniciar sesión');
